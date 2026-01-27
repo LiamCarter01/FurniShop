@@ -6,13 +6,11 @@ import 'app_colors.dart';
 ///
 /// Contains all text styles used throughout the app.
 /// Use these constants for consistent typography.
+/// Note: No fontFamily specified - Flutter uses bundled Material fonts.
 abstract class AppTypography {
-  // Font family
-  static const String fontFamily = 'Roboto';
-
   // Display styles (large headings)
   static const TextStyle displayLarge = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 57,
     fontWeight: FontWeight.w400,
     letterSpacing: -0.25,
@@ -20,14 +18,14 @@ abstract class AppTypography {
   );
 
   static const TextStyle displayMedium = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 45,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
   );
 
   static const TextStyle displaySmall = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 36,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
@@ -35,21 +33,21 @@ abstract class AppTypography {
 
   // Headline styles
   static const TextStyle headlineLarge = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 32,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
   static const TextStyle headlineMedium = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 28,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
   static const TextStyle headlineSmall = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 24,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
@@ -57,14 +55,14 @@ abstract class AppTypography {
 
   // Title styles
   static const TextStyle titleLarge = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 22,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
   );
 
   static const TextStyle titleMedium = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 16,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.15,
@@ -72,7 +70,7 @@ abstract class AppTypography {
   );
 
   static const TextStyle titleSmall = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
@@ -81,7 +79,7 @@ abstract class AppTypography {
 
   // Body styles
   static const TextStyle bodyLarge = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 16,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.5,
@@ -89,7 +87,7 @@ abstract class AppTypography {
   );
 
   static const TextStyle bodyMedium = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.25,
@@ -97,7 +95,7 @@ abstract class AppTypography {
   );
 
   static const TextStyle bodySmall = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 12,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.4,
@@ -106,7 +104,7 @@ abstract class AppTypography {
 
   // Label styles
   static const TextStyle labelLarge = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 14,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.1,
@@ -114,7 +112,7 @@ abstract class AppTypography {
   );
 
   static const TextStyle labelMedium = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 12,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
@@ -122,7 +120,7 @@ abstract class AppTypography {
   );
 
   static const TextStyle labelSmall = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 11,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
@@ -131,14 +129,14 @@ abstract class AppTypography {
 
   // Price styles (custom)
   static const TextStyle priceRegular = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 18,
     fontWeight: FontWeight.w700,
     color: AppColors.accent,
   );
 
   static const TextStyle priceStrikethrough = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textHint,
@@ -147,7 +145,7 @@ abstract class AppTypography {
 
   // Button text
   static const TextStyle button = TextStyle(
-    fontFamily: fontFamily,
+    inherit: true,
     fontSize: 14,
     fontWeight: FontWeight.w600,
     letterSpacing: 1.25,

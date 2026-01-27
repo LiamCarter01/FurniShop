@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# Dependencies
+.dart_tool/
+.packages
+.pub/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Flutter
+*.log
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+Dockerfile
+docker-compose.yml
+
+# Test & Docs
+test/
+doc/
+*.md
+coverage/
+
+# Platform folders (not needed for web build)
+android/
+ios/
+macos/
+linux/
+windows/
