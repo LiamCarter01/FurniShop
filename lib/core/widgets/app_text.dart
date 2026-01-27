@@ -116,17 +116,20 @@ class AppText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: _getStyle(),
+      style: _getStyle(context),
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: overflow ?? (maxLines != null ? TextOverflow.ellipsis : null),
     );
   }
 
-  TextStyle _getStyle() {
+  TextStyle _getStyle(BuildContext context) {
     TextStyle baseStyle = _getBaseStyle();
+    
+    // Merge with default text style for proper inheritance on web
+    final defaultStyle = DefaultTextStyle.of(context).style;
 
-    return baseStyle.copyWith(
+    return defaultStyle.merge(baseStyle).copyWith(
       color: color ?? baseStyle.color,
       fontWeight: fontWeight ?? baseStyle.fontWeight,
       fontSize: fontSize ?? baseStyle.fontSize,

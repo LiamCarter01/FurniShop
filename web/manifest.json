@@ -1,0 +1,12 @@
+{
+    "name": "FurniShop",
+    "short_name": "FurniShop",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#F5F6FA",
+    "theme_color": "#2D3436",
+    "description": "FurniShop - Furniture E-Commerce App",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": []
+}

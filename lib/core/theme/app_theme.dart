@@ -8,11 +8,15 @@ import 'app_typography.dart';
 /// Provides [lightTheme] and [darkTheme] for the app.
 /// Uses [AppColors] and [AppTypography] for consistency.
 abstract class AppTheme {
+  // Use system default font instead of downloading Roboto
+  static const String? _fontFamily = null;
+  
   /// Light theme configuration.
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      fontFamily: _fontFamily,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.light(
@@ -33,7 +37,7 @@ abstract class AppTheme {
         centerTitle: true,
         titleTextStyle: AppTypography.titleLarge,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.surface,
         elevation: 2,
         shadowColor: AppColors.shadow,
@@ -106,6 +110,7 @@ abstract class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
+      fontFamily: _fontFamily,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.darkBackground,
       colorScheme: const ColorScheme.dark(
@@ -128,7 +133,7 @@ abstract class AppTheme {
           color: AppColors.darkTextPrimary,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.darkSurface,
         elevation: 2,
         shadowColor: AppColors.shadow,

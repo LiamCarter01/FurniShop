@@ -50,8 +50,29 @@ lib/
 
 - Flutter SDK (>=3.0.0)
 - Dart SDK (>=3.0.0)
+- Docker & Docker Compose (for containerized setup)
 
-### Installation
+### 🐳 Running with Docker (Recommended)
+
+The easiest way to run the app locally:
+
+```bash
+# Build and run the production container
+docker compose up --build
+
+# Access the app at http://localhost:3000
+```
+
+For development with hot reload:
+
+```bash
+# Run development container
+docker compose --profile dev up furnishop-dev
+
+# Access the app at http://localhost:8080
+```
+
+### Local Installation (Without Docker)
 
 ```bash
 # Clone the repository
