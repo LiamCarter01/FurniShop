@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/chairs/presentation/pages/chair_detail_page.dart';
 import '../../features/chairs/presentation/pages/chairs_page.dart';
+import '../../features/desks/presentation/pages/desk_detail_page.dart';
+import '../../features/desks/presentation/pages/desks_page.dart';
 import 'home_page.dart';
 
 /// Application route paths.
@@ -63,11 +65,21 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
 
-      // Desks routes (placeholder)
+      // Desks routes
       GoRoute(
         path: AppRoutes.desks,
         name: 'desks',
-        builder: (context, state) => const _PlaceholderPage(title: 'Desks'),
+        builder: (context, state) => const DesksPage(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            name: 'desk-detail',
+            builder: (context, state) {
+              final id = state.pathParameters['id']!;
+              return DeskDetailPage(deskId: id);
+            },
+          ),
+        ],
       ),
 
       // Bedrooms routes (placeholder for AI to implement)
