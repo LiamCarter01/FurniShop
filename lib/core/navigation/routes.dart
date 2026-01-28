@@ -6,6 +6,8 @@ import '../../features/chairs/presentation/pages/chair_detail_page.dart';
 import '../../features/chairs/presentation/pages/chairs_page.dart';
 import '../../features/desks/presentation/pages/desk_detail_page.dart';
 import '../../features/desks/presentation/pages/desks_page.dart';
+import '../../features/living_rooms/presentation/pages/living_rooms_page.dart';
+import '../../features/living_rooms/presentation/pages/living_room_detail_page.dart';
 import 'home_page.dart';
 
 /// Application route paths.
@@ -19,6 +21,8 @@ abstract class AppRoutes {
   static const String deskDetail = '/desks/:id';
   static const String bedrooms = '/bedrooms';
   static const String bedroomDetail = '/bedrooms/:id';
+  static const String livingRooms = '/living_rooms';
+  static const String livingRoomDetail = '/living_rooms/:id';
   static const String cart = '/cart';
   static const String profile = '/profile';
   static const String search = '/search';
@@ -31,6 +35,9 @@ abstract class AppRoutes {
 
   /// Generate bedroom detail path with ID.
   static String bedroomDetailPath(String id) => '/bedrooms/$id';
+
+  /// Generate living room detail path with ID.
+  static String livingRoomDetailPath(String id) => '/living_rooms/$id';
 }
 
 /// Router provider for GoRouter.
@@ -83,6 +90,28 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
 
       // Bedrooms routes (placeholder for AI to implement)
+      GoRoute(
+        path: AppRoutes.bedrooms,
+        name: 'bedrooms',
+        builder: (context, state) => const _PlaceholderPage(title: 'Bedrooms'),
+      ),
+
+      // Living rooms routes
+      GoRoute(
+        path: AppRoutes.livingRooms,
+        name: 'living-rooms',
+        builder: (context, state) => const LivingRoomsPage(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            name: 'living-room-detail',
+            builder: (context, state) {
+              final id = state.pathParameters['id']!;
+              return LivingRoomDetailPage(livingRoomId: id);
+            },
+          ),
+        ],
+      ),
       GoRoute(
         path: AppRoutes.bedrooms,
         name: 'bedrooms',

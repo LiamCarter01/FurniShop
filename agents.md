@@ -5,18 +5,9 @@ This document defines rules, architecture, and coding standards for AI agents co
 
 ## Project Overview
 - Flutter mobile app for furniture e-commerce
-- Clean Architecture: core + features
 - Features: chairs, desks, bedrooms, living_rooms, etc.
 
-## Folder Structure
-- `lib/core/` → reusable widgets, theme, errors, navigation
-- `lib/features/<feature>/`
-  - `data/` → models, datasources, repository implementations
-  - `domain/` → entities, use cases, repository interfaces
-  - `presentation/` → pages, providers, state, widgets
-
 ## Coding Guidelines
-- Use Riverpod StateNotifier for state management
 - Reuse core widgets (`AppScaffold`, `AppText`, `ProductCard`, `AppButton`)
 - Register routes in `core/navigation/routes.dart`
 

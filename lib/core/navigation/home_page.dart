@@ -79,12 +79,10 @@ class HomePage extends StatelessWidget {
                   onTap: () => context.push(AppRoutes.bedrooms),
                 ),
                 _CategoryCard(
-                  title: 'More',
-                  icon: Icons.more_horiz,
-                  color: AppColors.primaryLight,
-                  onTap: () {
-                    // TODO: Navigate to all categories
-                  },
+                  title: 'Living Rooms',
+                  icon: Icons.living,
+                  color: AppColors.warning,
+                  onTap: () => context.push(AppRoutes.livingRooms),
                 ),
               ],
             ),
