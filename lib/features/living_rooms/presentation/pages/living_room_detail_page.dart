@@ -9,41 +9,40 @@ import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_scaffold.dart';
 import '../../../../core/widgets/app_text.dart';
 import '../../../../core/widgets/state_widgets.dart' as core;
-import '../../domain/entities/desk_entity.dart';
+import '../../domain/entities/living_room_entity.dart';
 import '../providers/providers.dart';
 import '../state/state.dart';
 
-/// Desk detail page.
+/// Living room detail page.
 ///
-/// Displays detailed information about a single desk.
+/// Displays detailed information about a single living room item.
 /// Allows adding to cart with quantity selection.
-class DeskDetailPage extends ConsumerStatefulWidget {
-  final String deskId;
+class LivingRoomDetailPage extends ConsumerStatefulWidget {
+  final String livingRoomId;
 
-  const DeskDetailPage({
+  const LivingRoomDetailPage({
     super.key,
-    required this.deskId,
+    required this.livingRoomId,
   });
 
   @override
-  ConsumerState<DeskDetailPage> createState() => _DeskDetailPageState();
+  ConsumerState<LivingRoomDetailPage> createState() => _LivingRoomDetailPageState();
 }
 
-class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
+class _LivingRoomDetailPageState extends ConsumerState<LivingRoomDetailPage> {
   @override
   void initState() {
     super.initState();
-    // Load desk details when page is first displayed
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(deskDetailProvider(widget.deskId).notifier).loadDesk(
-            widget.deskId,
-          );
+      ref
+          .read(livingRoomDetailProvider(widget.livingRoomId).notifier)
+          .loadLivingRoom(widget.livingRoomId);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(deskDetailProvider(widget.deskId));
+    final state = ref.watch(livingRoomDetailProvider(widget.livingRoomId));
 
     return AppScaffold(
       title: '',
@@ -64,27 +63,27 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
     );
   }
 
-  Widget _buildBody(DeskDetailState state) {
+  Widget _buildBody(LivingRoomDetailState state) {
     return switch (state) {
-      DeskDetailInitial() => const core.LoadingWidget(),
-      DeskDetailLoading() => const core.LoadingWidget(message: 'Loading...'),
-      DeskDetailLoaded(:final desk, :final quantity, :final totalPrice) =>
+      LivingRoomDetailInitial() => const core.LoadingWidget(),
+      LivingRoomDetailLoading() => const core.LoadingWidget(message: 'Loading...'),
+      LivingRoomDetailLoaded(:final livingRoom, :final quantity, :final totalPrice) =>
         _buildDetailContent(
-          desk: desk,
+          room: livingRoom,
           quantity: quantity,
           totalPrice: totalPrice,
         ),
-      DeskDetailError(:final message) => core.ErrorWidget(
+      LivingRoomDetailError(:final message) => core.ErrorWidget(
           message: message,
           onRetry: () => ref
-              .read(deskDetailProvider(widget.deskId).notifier)
-              .loadDesk(widget.deskId),
+              .read(livingRoomDetailProvider(widget.livingRoomId).notifier)
+              .loadLivingRoom(widget.livingRoomId),
         ),
     };
   }
 
   Widget _buildDetailContent({
-    required Desk desk,
+    required LivingRoom room,
     required int quantity,
     required double totalPrice,
   }) {
@@ -95,43 +94,33 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Image
-                _buildImageSection(desk),
-
-                // Content
+                _buildImageSection(room),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Category badge
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: AppColors.accent.withAlpha(25),
+                          color: AppColors.accent.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: AppText(
-                          text: _formatCategory(desk.category),
+                          text: _formatText(room.category),
                           variant: AppTextVariant.labelSmall,
                           color: AppColors.accent,
                         ),
                       ),
-
                       const SizedBox(height: 12),
-
-                      // Name
                       AppText(
-                        text: desk.name,
+                        text: room.name,
                         variant: AppTextVariant.headlineMedium,
                       ),
-
                       const SizedBox(height: 8),
-
-                      // Rating
                       Row(
                         children: [
                           Icon(
@@ -141,18 +130,18 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                           ),
                           const SizedBox(width: 4),
                           AppText(
-                            text: desk.rating.toStringAsFixed(1),
+                            text: room.rating.toStringAsFixed(1),
                             variant: AppTextVariant.titleSmall,
                             fontWeight: FontWeight.bold,
                           ),
                           const SizedBox(width: 4),
                           AppText(
-                            text: '(${desk.reviewCount} reviews)',
+                            text: '(${room.reviewCount} reviews)',
                             variant: AppTextVariant.bodySmall,
                             color: AppColors.textSecondary,
                           ),
                           const Spacer(),
-                          if (!desk.inStock)
+                          if (!room.inStock)
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
@@ -170,19 +159,16 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                             ),
                         ],
                       ),
-
                       const SizedBox(height: 16),
                       const Divider(),
                       const SizedBox(height: 16),
-
-                      // Price
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          AppText.price(amount: desk.price),
-                          if (desk.hasDiscount) ...[
+                          AppText.price(amount: room.price),
+                          if (room.hasDiscount) ...[
                             const SizedBox(width: 8),
-                            AppText.originalPrice(amount: desk.originalPrice!),
+                            AppText.originalPrice(amount: room.originalPrice!),
                             const SizedBox(width: 8),
                             Container(
                               padding: const EdgeInsets.symmetric(
@@ -194,7 +180,7 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: AppText(
-                                text: '-${desk.discountPercentage}%',
+                                text: '-${room.discountPercentage}%',
                                 variant: AppTextVariant.labelSmall,
                                 color: Colors.white,
                               ),
@@ -202,37 +188,28 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                           ],
                         ],
                       ),
-
                       const SizedBox(height: 24),
-
-                      // Description
                       const AppText(
                         text: 'Description',
                         variant: AppTextVariant.titleMedium,
                       ),
                       const SizedBox(height: 8),
                       AppText(
-                        text: desk.description,
+                        text: room.description,
                         variant: AppTextVariant.bodyMedium,
                         color: AppColors.textSecondary,
                       ),
-
                       const SizedBox(height: 24),
-
-                      // Specifications
                       const AppText(
                         text: 'Specifications',
                         variant: AppTextVariant.titleMedium,
                       ),
                       const SizedBox(height: 12),
-                      _buildSpecRow('Material', _formatCategory(desk.material)),
-                      _buildSpecRow('Color', _formatCategory(desk.color)),
-                      _buildSpecRow('Dimensions', desk.dimensions.formatted),
-
+                      _buildSpecRow('Material', _formatText(room.material)),
+                      _buildSpecRow('Color', _formatText(room.color)),
+                      _buildSpecRow('Dimensions', room.dimensions.formatted),
                       const SizedBox(height: 24),
-
-                      // Tags
-                      if (desk.tags.isNotEmpty) ...[
+                      if (room.tags.isNotEmpty) ...[
                         const AppText(
                           text: 'Tags',
                           variant: AppTextVariant.titleMedium,
@@ -241,7 +218,7 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                         Wrap(
                           spacing: 8,
                           runSpacing: 8,
-                          children: desk.tags.map((tag) {
+                          children: room.tags.map((tag) {
                             return Chip(
                               label: Text(tag),
                               backgroundColor: AppColors.surfaceVariant,
@@ -259,20 +236,18 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
             ),
           ),
         ),
-
-        // Bottom bar with quantity and add to cart
-        _buildBottomBar(desk, quantity, totalPrice),
+        _buildBottomBar(room, quantity, totalPrice),
       ],
     );
   }
 
-  Widget _buildImageSection(Desk desk) {
+  Widget _buildImageSection(LivingRoom room) {
     return Stack(
       children: [
         AspectRatio(
           aspectRatio: 1,
           child: CachedNetworkImage(
-            imageUrl: desk.imageUrl,
+            imageUrl: room.imageUrl,
             fit: BoxFit.cover,
             placeholder: (context, url) => Container(
               color: AppColors.surfaceVariant,
@@ -290,7 +265,6 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
             ),
           ),
         ),
-        // Wishlist button
         Positioned(
           bottom: 16,
           right: 16,
@@ -335,7 +309,7 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
     );
   }
 
-  Widget _buildBottomBar(Desk desk, int quantity, double totalPrice) {
+  Widget _buildBottomBar(LivingRoom room, int quantity, double totalPrice) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -351,7 +325,6 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
       child: SafeArea(
         child: Row(
           children: [
-            // Quantity selector
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.border),
@@ -362,8 +335,8 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                   IconButton(
                     onPressed: quantity > 1
                         ? () => ref
-                            .read(deskDetailProvider(widget.deskId).notifier)
-                            .decrementQuantity()
+                            .read(livingRoomDetailProvider(widget.livingRoomId).notifier)
+                            .updateQuantity(quantity - 1)
                         : null,
                     icon: const Icon(Icons.remove),
                     iconSize: 20,
@@ -383,8 +356,8 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                   ),
                   IconButton(
                     onPressed: () => ref
-                        .read(deskDetailProvider(widget.deskId).notifier)
-                        .incrementQuantity(),
+                        .read(livingRoomDetailProvider(widget.livingRoomId).notifier)
+                        .updateQuantity(quantity + 1),
                     icon: const Icon(Icons.add),
                     iconSize: 20,
                     constraints: const BoxConstraints(
@@ -395,16 +368,13 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
                 ],
               ),
             ),
-
             const SizedBox(width: 16),
-
-            // Add to cart button
             Expanded(
               child: AppButton(
                 label: 'Add to Cart - \$${totalPrice.toStringAsFixed(2)}',
-                onPressed: desk.inStock
+                onPressed: room.inStock
                     ? () {
-                        _showAddToCartSnackbar(desk.name, quantity);
+                        _showAddToCartSnackbar(room.name, quantity);
                       }
                     : null,
                 variant: AppButtonVariant.accent,
@@ -418,15 +388,15 @@ class _DeskDetailPageState extends ConsumerState<DeskDetailPage> {
     );
   }
 
-  String _formatCategory(String text) {
+  String _formatText(String text) {
     if (text.isEmpty) return text;
-    return text[0].toUpperCase() + text.substring(1);
+    return text.substring(0, 1).toUpperCase() + text.substring(1);
   }
 
-  void _showAddToCartSnackbar(String productName, int quantity) {
+  void _showAddToCartSnackbar(String name, int quantity) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('$quantity x $productName added to cart'),
+        content: Text('$quantity x $name added to cart'),
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
           label: 'View Cart',
