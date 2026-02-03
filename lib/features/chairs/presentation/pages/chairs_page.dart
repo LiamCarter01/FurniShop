@@ -14,7 +14,6 @@ import '../widgets/chair_grid.dart';
 /// Chairs list page.
 ///
 /// Displays a grid of chairs with category filtering.
-/// Uses Riverpod for state management.
 class ChairsPage extends ConsumerStatefulWidget {
   const ChairsPage({super.key});
 

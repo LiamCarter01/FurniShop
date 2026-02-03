@@ -14,7 +14,6 @@ import '../widgets/desk_grid.dart';
 /// Desks list page.
 ///
 /// Displays a grid of desks with category filtering.
-/// Uses Riverpod for state management.
 class DesksPage extends ConsumerStatefulWidget {
   const DesksPage({super.key});
 
