@@ -1,5 +1,5 @@
 name: furnishop
-description: A production-like Flutter furniture e-commerce app following Clean Architecture.
+description: A production-like Flutter furniture e-commerce app.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,7 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # State Management
   flutter_riverpod: ^2.4.9
   riverpod_annotation: ^2.3.3
 
@@ -37,7 +36,6 @@ dev_dependencies:
   # Linting
   flutter_lints: ^3.0.1
 
-  # Code Generation
   build_runner: ^2.4.8
   json_serializable: ^6.7.1
   riverpod_generator: ^2.3.9

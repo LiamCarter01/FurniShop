@@ -6,7 +6,6 @@ import '../repositories/chair_repository.dart';
 
 /// Use case for getting all chairs.
 ///
-/// This follows the Clean Architecture use case pattern.
 /// It encapsulates a single business action.
 class GetChairsUseCase {
   final ChairRepository repository;

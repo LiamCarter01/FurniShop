@@ -6,7 +6,6 @@ import '../repositories/desk_repository.dart';
 
 /// Use case for getting all desks.
 ///
-/// This follows the Clean Architecture use case pattern.
 /// It encapsulates a single business action.
 class GetDesksUseCase {
   final DeskRepository repository;
