@@ -8,6 +8,8 @@ import '../../features/desks/presentation/pages/desk_detail_page.dart';
 import '../../features/desks/presentation/pages/desks_page.dart';
 import '../../features/living_rooms/presentation/pages/living_rooms_page.dart';
 import '../../features/living_rooms/presentation/pages/living_room_detail_page.dart';
+import '../../features/bedrooms/presentation/pages/bedrooms_page.dart';
+import '../../features/bedrooms/presentation/pages/bedroom_detail_page.dart';
 import 'home_page.dart';
 
 /// Application route paths.
@@ -89,11 +91,21 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
 
-      // Bedrooms routes (placeholder for AI to implement)
+      // Bedrooms routes
       GoRoute(
         path: AppRoutes.bedrooms,
         name: 'bedrooms',
-        builder: (context, state) => const _PlaceholderPage(title: 'Bedrooms'),
+        builder: (context, state) => const BedroomsPage(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            name: 'bedroom-detail',
+            builder: (context, state) {
+              final id = state.pathParameters['id']!;
+              return BedroomDetailPage(bedroomId: id);
+            },
+          ),
+        ],
       ),
 
       // Living rooms routes
