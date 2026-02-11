@@ -8,11 +8,12 @@ import '../../features/desks/presentation/pages/desk_detail_page.dart';
 import '../../features/desks/presentation/pages/desks_page.dart';
 import '../../features/living_rooms/presentation/pages/living_rooms_page.dart';
 import '../../features/living_rooms/presentation/pages/living_room_detail_page.dart';
+import '../../features/bedrooms/presentation/pages/bedrooms_page.dart';
+import '../../features/bedrooms/presentation/pages/bedroom_detail_page.dart';
 import 'home_page.dart';
 
 /// Application route paths.
 ///
-/// Use these constants for navigation instead of hardcoding paths.
 abstract class AppRoutes {
   static const String home = '/';
   static const String chairs = '/chairs';
@@ -42,7 +43,6 @@ abstract class AppRoutes {
 
 /// Router provider for GoRouter.
 ///
-/// Use this to access the router instance.
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: AppRoutes.home,
@@ -89,11 +89,21 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
 
-      // Bedrooms routes (placeholder for AI to implement)
+      // Bedrooms routes
       GoRoute(
         path: AppRoutes.bedrooms,
         name: 'bedrooms',
-        builder: (context, state) => const _PlaceholderPage(title: 'Bedrooms'),
+        builder: (context, state) => const BedroomsPage(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            name: 'bedroom-detail',
+            builder: (context, state) {
+              final id = state.pathParameters['id']!;
+              return BedroomDetailPage(bedroomId: id);
+            },
+          ),
+        ],
       ),
 
       // Living rooms routes
@@ -111,11 +121,6 @@ final routerProvider = Provider<GoRouter>((ref) {
             },
           ),
         ],
-      ),
-      GoRoute(
-        path: AppRoutes.bedrooms,
-        name: 'bedrooms',
-        builder: (context, state) => const _PlaceholderPage(title: 'Bedrooms'),
       ),
 
       // Cart route (placeholder)
@@ -138,7 +143,6 @@ final routerProvider = Provider<GoRouter>((ref) {
 
 /// Placeholder page for unimplemented features.
 ///
-/// Replace this with actual feature pages.
 class _PlaceholderPage extends StatelessWidget {
   final String title;
 
@@ -187,35 +191,7 @@ class _ErrorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Error')),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.error_outline,
-              size: 64,
-              color: Colors.red,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Page Not Found',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 8),
-            if (error != null)
-              Text(
-                error.toString(),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.grey,
-                    ),
-                textAlign: TextAlign.center,
-              ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () => context.go(AppRoutes.home),
-              child: const Text('Go Home'),
-            ),
-          ],
-        ),
+        child: Text(error?.toString() ?? 'Unknown error'),
       ),
     );
   }
