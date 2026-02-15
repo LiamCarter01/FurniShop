@@ -1,0 +1,1 @@
+// Bedrooms page implementation

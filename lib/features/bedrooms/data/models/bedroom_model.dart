@@ -1,0 +1,1 @@
+// Bedroom data model
