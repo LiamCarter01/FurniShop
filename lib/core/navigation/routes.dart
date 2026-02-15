@@ -89,11 +89,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
 
-      // Bedrooms routes (placeholder for AI to implement)
+      // Bedrooms routes
       GoRoute(
         path: AppRoutes.bedrooms,
         name: 'bedrooms',
-        builder: (context, state) => const _PlaceholderPage(title: 'Bedrooms'),
+        builder: (context, state) => const BedroomPage(),
       ),
 
       // Living rooms routes
