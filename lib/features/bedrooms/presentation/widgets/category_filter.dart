@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/app_text.dart';
+
+/// Category filter chip widget specialized for bedrooms.
+///
+/// Displays a horizontal list of category chips for filtering the bedroom list.
+class BedroomCategoryFilter extends StatelessWidget {
+  final List<String> categories;
+  final String? selectedCategory;
+  final ValueChanged<String?> onCategorySelected;
+
+  const BedroomCategoryFilter({
+    super.key,
+    required this.categories,
+    this.selectedCategory,
+    required this.onCategorySelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          _BedroomCategoryChip(
+            label: 'All',
+            isSelected: selectedCategory == null,
+            onTap: () => onCategorySelected(null),
+          ),
+          const SizedBox(width: 8),
+          ...categories.map((category) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: _BedroomCategoryChip(
+                label: _formatCategory(category),
+                isSelected: selectedCategory == category,
+                onTap: () => onCategorySelected(category),
+              ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+
+  String _formatCategory(String category) {
+    if (category.isEmpty) return category;
+    return '${category[0].toUpperCase()}${category.substring(1)}';
+  }
+}
+
+class _BedroomCategoryChip extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _BedroomCategoryChip({
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isSelected ? AppColors.accent : AppColors.surface,
+      borderRadius: BorderRadius.circular(24),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(24),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: isSelected ? AppColors.accent : AppColors.border,
+            ),
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Center(
+            child: AppText(
+              text: label,
+              variant: AppTextVariant.labelMedium,
+              color: isSelected ? Colors.white : AppColors.textPrimary,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
