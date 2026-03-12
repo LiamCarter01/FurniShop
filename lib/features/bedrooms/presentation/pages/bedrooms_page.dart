@@ -9,6 +9,7 @@ import '../../../../core/widgets/state_widgets.dart' as core;
 import '../providers/providers.dart';
 import '../state/state.dart';
 import '../widgets/widgets.dart';
+import '../../domain/entities/bedroom_entity.dart';
 
 /// Bedrooms list page.
 class BedroomsPage extends ConsumerStatefulWidget {
