@@ -1,0 +1,130 @@
+{
+  "chairs": [
+    {
+      "id": "chair_001",
+      "name": "Modern Office Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800&q=80",
+      "description": "Ergonomic office chair with lumbar support"
+    },
+    {
+      "id": "chair_002",
+      "name": "Classic Wooden Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+      "description": "Handcrafted wooden dining chair"
+    },
+    {
+      "id": "chair_003",
+      "name": "Accent Armchair",
+      "imageUrl": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80",
+      "description": "Comfortable accent chair for living spaces"
+    },
+    {
+      "id": "chair_004",
+      "name": "Gaming Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80",
+      "description": "High-back gaming chair with adjustable features"
+    },
+    {
+      "id": "chair_005",
+      "name": "Scandinavian Dining Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80",
+      "description": "Minimalist Scandinavian-style dining chair"
+    }
+  ],
+  "desks": [
+    {
+      "id": "desk_001",
+      "name": "Standing Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=800&q=80",
+      "description": "Adjustable height standing desk"
+    },
+    {
+      "id": "desk_002",
+      "name": "Executive Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800&q=80",
+      "description": "Large executive desk with storage"
+    },
+    {
+      "id": "desk_003",
+      "name": "Minimalist Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800&q=80",
+      "description": "Clean, minimalist workspace desk"
+    },
+    {
+      "id": "desk_004",
+      "name": "Corner Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
+      "description": "Space-saving corner desk"
+    },
+    {
+      "id": "desk_005",
+      "name": "Industrial Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=800&q=80",
+      "description": "Industrial style desk with metal frame"
+    }
+  ],
+  "bedrooms": [
+    {
+      "id": "bedroom_001",
+      "name": "Modern Bedroom Set",
+      "imageUrl": "https://images.unsplash.com/photo-1505693314120-0d443867891c?w=800&q=80",
+      "description": "Complete modern bedroom furniture set"
+    },
+    {
+      "id": "bedroom_002",
+      "name": "Platform Bed",
+      "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
+      "description": "Low profile platform bed frame"
+    },
+    {
+      "id": "bedroom_003",
+      "name": "Nightstand",
+      "imageUrl": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80",
+      "description": "Modern bedside nightstand with drawers"
+    },
+    {
+      "id": "bedroom_004",
+      "name": "Dresser",
+      "imageUrl": "https://images.unsplash.com/photo-1588046130717-0eb0ccf312f2?w=800&q=80",
+      "description": "Six-drawer wooden dresser"
+    },
+    {
+      "id": "bedroom_005",
+      "name": "Wardrobe",
+      "imageUrl": "https://images.unsplash.com/photo-1595428773083-1e42a8219dbc?w=800&q=80",
+      "description": "Spacious wardrobe with sliding doors"
+    }
+  ],
+  "living_rooms": [
+    {
+      "id": "living_001",
+      "name": "Sectional Sofa",
+      "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+      "description": "L-shaped sectional sofa"
+    },
+    {
+      "id": "living_002",
+      "name": "Coffee Table",
+      "imageUrl": "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=800&q=80",
+      "description": "Modern glass coffee table"
+    },
+    {
+      "id": "living_003",
+      "name": "TV Stand",
+      "imageUrl": "https://images.unsplash.com/photo-1593030668969-cbeb2f558e44?w=800&q=80",
+      "description": "Entertainment center TV stand"
+    },
+    {
+      "id": "living_004",
+      "name": "Bookshelf",
+      "imageUrl": "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800&q=80",
+      "description": "Tall wooden bookshelf unit"
+    },
+    {
+      "id": "living_005",
+      "name": "Recliner",
+      "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+      "description": "Comfortable reclining chair"
+    }
+  ]
+}
