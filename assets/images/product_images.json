@@ -29,6 +29,36 @@
       "name": "Scandinavian Dining Chair",
       "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80",
       "description": "Minimalist Scandinavian-style dining chair"
+    },
+    {
+      "id": "chair_006",
+      "name": "Velvet Lounge Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80",
+      "description": "Luxurious velvet upholstered lounge chair"
+    },
+    {
+      "id": "chair_007",
+      "name": "Outdoor Patio Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1517705008128-361805f42e86?w=800&q=80",
+      "description": "Weather-resistant outdoor seating"
+    },
+    {
+      "id": "chair_008",
+      "name": "Rocking Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1519947486511-46149fa0a254?w=800&q=80",
+      "description": "Classic wooden rocking chair"
+    },
+    {
+      "id": "chair_009",
+      "name": "Bar Stool",
+      "imageUrl": "https://images.unsplash.com/photo-1611967164521-abae8e95c540?w=800&q=80",
+      "description": "Modern adjustable height bar stool"
+    },
+    {
+      "id": "chair_010",
+      "name": "Folding Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+      "description": "Portable folding chair for events"
     }
   ],
   "desks": [
@@ -61,6 +91,36 @@
       "name": "Industrial Desk",
       "imageUrl": "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=800&q=80",
       "description": "Industrial style desk with metal frame"
+    },
+    {
+      "id": "desk_006",
+      "name": "Writing Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1595428773083-1e42a8219dbc?w=800&q=80",
+      "description": "Compact writing desk with drawer"
+    },
+    {
+      "id": "desk_007",
+      "name": "L-Shaped Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1589834390010-46cc2086d1ec?w=800&q=80",
+      "description": "Spacious L-shaped corner workstation"
+    },
+    {
+      "id": "desk_008",
+      "name": "Secretary Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1595428774286-4fbb86f6b6ce?w=800&q=80",
+      "description": "Traditional secretary desk with hutch"
+    },
+    {
+      "id": "desk_009",
+      "name": "Gaming Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1616627547584-bf28cfefc0f5?w=800&q=80",
+      "description": "Ergonomic gaming desk with cable management"
+    },
+    {
+      "id": "desk_010",
+      "name": "Floating Desk",
+      "imageUrl": "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=800&q=80",
+      "description": "Wall-mounted floating desk"
     }
   ],
   "bedrooms": [
@@ -93,6 +153,36 @@
       "name": "Wardrobe",
       "imageUrl": "https://images.unsplash.com/photo-1595428773083-1e42a8219dbc?w=800&q=80",
       "description": "Spacious wardrobe with sliding doors"
+    },
+    {
+      "id": "bedroom_006",
+      "name": "Vanity Table",
+      "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80",
+      "description": "Elegant vanity table with mirror"
+    },
+    {
+      "id": "bedroom_007",
+      "name": "Storage Bench",
+      "imageUrl": "https://images.unsplash.com/photo-1558899189-5a8d8e8ec7dc?w=800&q=80",
+      "description": "Bedroom bench with storage compartment"
+    },
+    {
+      "id": "bedroom_008",
+      "name": "Chest of Drawers",
+      "imageUrl": "https://images.unsplash.com/photo-1595428774286-4fbb86f6b6ce?w=800&q=80",
+      "description": "Tall chest with multiple drawers"
+    },
+    {
+      "id": "bedroom_009",
+      "name": "Bedside Table Set",
+      "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+      "description": "Matching pair of bedside tables"
+    },
+    {
+      "id": "bedroom_010",
+      "name": "Upholstered Headboard",
+      "imageUrl": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&q=80",
+      "description": "Tufted upholstered headboard"
     }
   ],
   "living_rooms": [
@@ -125,6 +215,36 @@
       "name": "Recliner",
       "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
       "description": "Comfortable reclining chair"
+    },
+    {
+      "id": "living_006",
+      "name": "Ottoman",
+      "imageUrl": "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&q=80",
+      "description": "Versatile storage ottoman"
+    },
+    {
+      "id": "living_007",
+      "name": "Side Table",
+      "imageUrl": "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=800&q=80",
+      "description": "Modern accent side table"
+    },
+    {
+      "id": "living_008",
+      "name": "Console Table",
+      "imageUrl": "https://images.unsplash.com/photo-1611967164521-abae8e95c540?w=800&q=80",
+      "description": "Entryway console table"
+    },
+    {
+      "id": "living_009",
+      "name": "Loveseat",
+      "imageUrl": "https://images.unsplash.com/photo-1550254478-ead40cc54513?w=800&q=80",
+      "description": "Compact two-seater loveseat"
+    },
+    {
+      "id": "living_010",
+      "name": "Media Cabinet",
+      "imageUrl": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80",
+      "description": "Contemporary media storage cabinet"
     }
   ]
 }
